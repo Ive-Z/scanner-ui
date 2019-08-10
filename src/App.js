@@ -51,9 +51,29 @@ const styles = theme => ({
 });
 
 class App extends React.Component {
-    state = {
-        activeStep: 0,
-    };
+
+    constructor(props) {
+      super(props);
+      // Don't call this.setState() here!
+      let ws = new WebSocket("ws://localhost:8765");
+
+      ws.onopen = function (event) {
+          ws.send("JS");
+      };
+
+      ws.onmessage = function (event) {
+          console.log(event.data);
+        }
+
+      this.state = { activeStep: 0, webSocket: ws };
+
+      console.log(this.state.webSocket);
+      // this.handleClick = this.handleClick.bind(this);
+    }
+
+    // state = {
+    //
+    // };
 
     // handleNext = () => {
     //   const { activeStep } = this.state;
@@ -74,6 +94,8 @@ class App extends React.Component {
     //     activeStep: 0,
     //   });
     // };
+
+
 
     render() {
         const { classes } = this.props;

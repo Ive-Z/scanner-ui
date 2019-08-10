@@ -31,7 +31,7 @@ class ContentContainer extends React.Component {
                         <RightContainer/>
                     </div>
                 </div>
-				
+
 
             </React.Fragment>
 );

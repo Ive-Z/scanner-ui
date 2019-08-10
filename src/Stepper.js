@@ -40,7 +40,7 @@ function getSteps() {
 }
 
 export default function HorizontalLabelPositionBelowStepper() {
-  
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -74,54 +74,54 @@ export default function HorizontalLabelPositionBelowStepper() {
 
   return (
     <div className={classes.root}>
-      {/* <Stepper id="x" activeStep={activeStep} alternativeLabel>
-        {steps.map(label => (
-          <Step key={label}>
+        {/* <Stepper id="x" activeStep={activeStep} alternativeLabel>
+            {steps.map(label => (
+            <Step key={label}>
             <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper> */}
+            </Step>
+            ))}
+        </Stepper> */}
 
-	  {activeStep === 0 ? (
-      <div class="all_container">
-		  <div class="content_container">
-		  <div class="var_container">
+        {activeStep === 0 ? (
+            <div class="all_container">
+                <div class="content_container">
+                    <div class="var_container">
 
-      
-        <Fab style={{margin: '20px'}} color="secondary" aria-label="minus" className={classes.margin} onClick={handleMinus}>
-          <RemoveIcon />
-        </Fab>
-        <div class="slide_num">
-          
-          <DiscreteSlider />
-          
-        </div>
-       
 
-			<Fab style={{margin: '20px'}} color="secondary" aria-label="add" className={classes.margin} onClick={handleAdd}>
-			  <AddIcon />
-			</Fab>
+                        <Fab style={{margin: '20px'}} color="secondary" aria-label="minus" className={classes.margin} onClick={handleMinus}>
+                            <RemoveIcon />
+                        </Fab>
+                        <div class="slide_num">
 
-		  </div>
+                            <DiscreteSlider />
 
-      <label class="var_num">
-            Taking {n} pictures
-          </label>
+                        </div>
 
-		  <Button style={{padding: '2% 15%'}} variant="contained" color="primary" onClick={handleNext}>
-		    	<label class="var_txt">Start!</label>
-		  </Button>
-		  </div>
-      </div>
-    ) : (<div></div>)}
 
-	  <div>
-	  {/* {	activeStep === 0 ? (
-		  	  <Button size="small" className={classes.margin}>
+                        <Fab style={{margin: '20px'}} color="secondary" aria-label="add" className={classes.margin} onClick={handleAdd}>
+                            <AddIcon />
+                        </Fab>
+
+                    </div>
+
+                    <label class="var_num">
+                        Taking {n} pictures
+                    </label>
+
+                    <Button style={{padding: '2% 15%'}} variant="contained" color="primary" onClick={handleNext}>
+                        <label class="var_txt">Start!</label>
+                    </Button>
+                </div>
+            </div>
+        ) : (<div></div>)}
+
+        <div>
+            {/* {	activeStep === 0 ? (
+                <Button size="small" className={classes.margin}>
 		            1
 		         </Button>
-		): (<div></div>)
-		} */}
+                ): (<div></div>)
+            } */}
 
 		{	activeStep === 1 ? (
       <div class="all_container">
@@ -130,7 +130,7 @@ export default function HorizontalLabelPositionBelowStepper() {
          <TextMobileStepper/>
         </div>
 
-  		  	  
+
 			  <Button style={{padding : '2% 15%'}} variant="contained" color="primary" onClick={handleNext}>
 			    	<label class="var_txt">TEMP TEXT</label>
 			  </Button>
