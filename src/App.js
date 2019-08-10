@@ -75,7 +75,7 @@ class App extends React.Component {
 
         if(JSON.parse(event.data)["imgPath"]){
             console.log("contain imgPath");
-
+            console.log(event.data)
             // const cloneimgs = this.state.images.slice();
             // cloneimgs.push(JSON.parse(event.data));
             //

@@ -113,7 +113,10 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                         <div class="abc">
                             Choose a base line.
                         </div>
+
                         {images.length===1 ? (<img className={classes.img} src={images[0]}/>) : (<div> </div> ) }
+
+
 
                         <Button style={{padding : '2% 15%'}} variant="contained" color="primary" onClick={props.handleTakePhotos}>
                             <label class="var_txt">{images.length===0? "Take reference image" : "Retake reference image"}</label>
