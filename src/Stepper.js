@@ -35,6 +35,13 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(10),
     marginBottom: theme.spacing(1),
   },
+  img: {
+    height: 255,
+    maxWidth: 400,
+    overflow: 'hidden',
+    display: 'block',
+    width: '100%',
+  },
 }));
 
 function getSteps() {
@@ -106,7 +113,7 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                         <div class="abc">
                             Choose a base line.
                         </div>
-                        {props.images.length===1 ? (<img src={props.Images[0]}/>) : (<div> </div> ) }
+                        {props.images.length===1 ? (<img className={classes.img} src={props.images[0]}/>) : (<div> </div> ) }
 
                         <Button style={{padding : '2% 15%'}} variant="contained" color="primary" onClick={props.handleTakePhotos}>
                             <label class="var_txt">{props.images.length===0? "Take reference image" : "Retake reference image"}</label>
