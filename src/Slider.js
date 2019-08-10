@@ -31,6 +31,7 @@ export default function DiscreteSlider(props) {
       <div className={classes.margin} />
 
       <Slider
+        defaultValue={6}
         value={props.value}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-small-steps"

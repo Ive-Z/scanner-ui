@@ -63,7 +63,7 @@ export default function TextMobileStepper(props) {
 
         {images.length===0? (<div><CircularDeterminate/></div>):(<div><img
           className={classes.img}
-          src={images[activeStep].imgPath}
+          src={images[activeStep]}
         />
         <MobileStepper
           steps={maxSteps}

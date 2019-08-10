@@ -76,10 +76,10 @@ class App extends React.Component {
         if(JSON.parse(event.data)["imgPath"]){
             console.log("contain imgPath");
 
-            const cloneimgs = this.state.images.slice();
-            cloneimgs.push(JSON.parse(event.data));
-
-            this.setState({images:cloneimgs});
+            // const cloneimgs = this.state.images.slice();
+            // cloneimgs.push(JSON.parse(event.data));
+            //
+            this.setState({images:JSON.parse(event.data)["imgPath"]});
 
             console.log(this.state.images);
         }else if(JSON.parse(event.data)["modelPath"]){
@@ -87,7 +87,7 @@ class App extends React.Component {
             this.setState({activeStep:2 , modelPath:JSON.parse(event.data)["modelPath"]});
         }else if(JSON.parse(event.data)["explanationStep"]){
             console.log("contain explanationStep");
-            this.setState({explanationStep: this.state.explanationStep+1});
+            this.setState({explanationStep: JSON.parse(event.data)["explanationStep"]});
         }else{
             console.log("illegal message");
         }
