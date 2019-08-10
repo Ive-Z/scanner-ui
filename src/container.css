@@ -1,0 +1,15 @@
+.both_cont {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.left_cont {
+    width: 70%;
+    height: 100vh;
+}
+.right_cont {
+    width: 30%;
+    height: 100vh;
+    background:rgb(212, 213, 235);
+}

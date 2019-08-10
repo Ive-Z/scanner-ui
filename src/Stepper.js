@@ -39,45 +39,8 @@ function getSteps() {
   return ['Initialization', 'Processing...', 'Done!'];
 }
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return 'Initialization';
-    case 1:
-      return 'Processing...';
-    case 2:
-      return 'Done!';
-    default:
-      return 'Uknown stepIndex';
-  }
-}
-
-// function getStepDiv(stepIndex) {
-//   switch (stepIndex) {
-//     case 0:
-//       return
-// 	  <Button size="small" className={classes.margin}>
-//           Small
-//         </Button>
-//
-//     case 1:
-//       return
-// 	  <Button size="medium" className={classes.margin}>
-// 		Medium
-// 	  </Button>
-//     case 2:
-//       return
-// 	  <Button size="large" className={classes.margin}>
-// 		Large
-// 	  </Button>
-//     default:
-//       return 'Uknown stepIndex';
-//   }
-// }
-
 export default function HorizontalLabelPositionBelowStepper() {
   
-
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -111,15 +74,13 @@ export default function HorizontalLabelPositionBelowStepper() {
 
   return (
     <div className={classes.root}>
-      <Stepper id="x" activeStep={activeStep} alternativeLabel>
+      {/* <Stepper id="x" activeStep={activeStep} alternativeLabel>
         {steps.map(label => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
           </Step>
         ))}
-      </Stepper>
-
-
+      </Stepper> */}
 
 	  {activeStep === 0 ? (
       <div class="all_container">
@@ -153,9 +114,6 @@ export default function HorizontalLabelPositionBelowStepper() {
 		  </div>
       </div>
     ) : (<div></div>)}
-
-
-
 
 	  <div>
 	  {/* {	activeStep === 0 ? (

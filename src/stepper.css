@@ -1,48 +1,43 @@
 .content_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .all_container {
-    padding-top: 3%;
-    width: 80%;
-    margin: 0 auto;
-    min-height: 85vh;
-    border-left: 2px solid rgb(204, 206, 230);
-    border-right: 2px solid rgb(204, 206, 230);
-    background: rgb(247, 247, 247);
+  padding-top: 3%;
+  min-height: 85vh;
 }
 
 #x {
-    background: rgb(212, 213, 235);
+  background: rgb(212, 213, 235);
 }
 
 .var_container {
-    margin-top: 10%;
-    display: flex;
-    align-items: center;
+  margin-top: 10%;
+  display: flex;
+  align-items: center;
 }
 
 .root {
-    margin: 200px;
+  margin: 200px;
 }
 
 .var_num {
-    margin: 20px;
-    font-size: 24pt;
-    padding-bottom: 5%;
+  margin: 20px;
+  font-size: 24pt;
+  padding-bottom: 5%;
 }
 
 .var_txt {
-    font-size: 13pt;
+  font-size: 13pt;
 }
 
 .abc {
-    margin-top: 5%;
-    margin-bottom: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .slide_num {
-    text-align: center;
+  text-align: center;
 }

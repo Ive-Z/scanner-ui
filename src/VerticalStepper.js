@@ -9,9 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    width: '90%',
-  },
+
   button: {
     marginTop: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -65,7 +63,7 @@ export default function VerticalLinearStepper() {
 
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep} orientation="vertical">
+      <Stepper  activeStep={activeStep} orientation="vertical" id='x'>
         {steps.map((label, index) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>

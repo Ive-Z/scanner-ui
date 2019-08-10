@@ -5,6 +5,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import LeftContainer from './LeftContainer';
 import RightContainer from './RightContainer'
+import './container.css';
+
 
 const styles = theme => ({
 
@@ -15,17 +17,21 @@ class ContentContainer extends React.Component {
 
     };
 
-
-
     render() {
         const { classes } = this.props;
         const { activeStep } = this.state;
 
         return (
             <React.Fragment>
-
-                <LeftContainer/>
-				<RightContainer/>
+                <div class='both_cont'>
+                    <div class='left_cont'>
+                        <LeftContainer/>
+                    </div>
+                    <div class='right_cont'>
+                        <RightContainer/>
+                    </div>
+                </div>
+				
 
             </React.Fragment>
 );
