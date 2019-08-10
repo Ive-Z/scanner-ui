@@ -54,7 +54,7 @@ export default function HorizontalLabelPositionBelowStepper(props) {
   // const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
-
+  const images=props.images;
 
   return (
     <div className={classes.root}>
@@ -113,16 +113,16 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                         <div class="abc">
                             Choose a base line.
                         </div>
-                        {props.images.length===1 ? (<img className={classes.img} src={props.images[0]}/>) : (<div> </div> ) }
+                        {images.length===1 ? (<img className={classes.img} src={images[0]}/>) : (<div> </div> ) }
 
                         <Button style={{padding : '2% 15%'}} variant="contained" color="primary" onClick={props.handleTakePhotos}>
-                            <label class="var_txt">{props.images.length===0? "Take reference image" : "Retake reference image"}</label>
+                            <label class="var_txt">{images.length===0? "Take reference image" : "Retake reference image"}</label>
                         </Button>
 
                         <div class="abc">
                         </div>
 
-                        <Button style={{padding : '2% 15%'}} variant="contained" color="primary" onClick={props.onStart}>
+                        <Button style={{padding : '2% 15%'}} variant="contained" color="primary" disabled={images.length===0} onClick={props.onStart}>
                             <label class="var_txt">Start</label>
                         </Button>
                     </div>
@@ -134,7 +134,7 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                 <div class="all_container">
                     <div class="content_container">
                         <div class="abc">
-                            <TextMobileStepper images={props.images}/>
+                            <TextMobileStepper images={images}/>
                         </div>
 
 
