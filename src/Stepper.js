@@ -126,13 +126,15 @@ export default function HorizontalLabelPositionBelowStepper() {
 		  <div class="content_container">
 		  <div class="var_container">
 
-			 <Fab style={{margin: '20px'}} color="secondary" aria-label="minus" className={classes.margin} onClick={handleMinus}>
-			   <RemoveIcon />
-			 </Fab>
-      <DiscreteSlider />
-      <label class="var_num">
-        {n}
-      </label>
+      
+        <Fab style={{margin: '20px'}} color="secondary" aria-label="minus" className={classes.margin} onClick={handleMinus}>
+          <RemoveIcon />
+        </Fab>
+        <div class="slide_num">
+          
+          <DiscreteSlider />
+          
+        </div>
        
 
 			<Fab style={{margin: '20px'}} color="secondary" aria-label="add" className={classes.margin} onClick={handleAdd}>
@@ -140,6 +142,10 @@ export default function HorizontalLabelPositionBelowStepper() {
 			</Fab>
 
 		  </div>
+
+      <label class="var_num">
+            Taking {n} pictures
+          </label>
 
 		  <Button style={{padding: '2% 15%'}} variant="contained" color="primary" onClick={handleNext}>
 		    	<label class="var_txt">Start!</label>

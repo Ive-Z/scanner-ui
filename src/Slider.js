@@ -18,6 +18,7 @@ function valuetext(value) {
 
 function changeHandler(event, value) {
     alert(value);
+    
 }
 
 export default function DiscreteSlider() {
