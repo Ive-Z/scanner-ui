@@ -6,6 +6,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import DiscreteSlider from './Slider.js';
 import './stepper.css';
 
 // import Button from '@material-ui/core/Button';
@@ -128,7 +129,7 @@ export default function HorizontalLabelPositionBelowStepper() {
 			 <Fab style={{margin: '20px'}} color="secondary" aria-label="minus" className={classes.margin} onClick={handleMinus}>
 			   <RemoveIcon />
 			 </Fab>
-
+      <DiscreteSlider />
       <label class="var_num">
         {n}
       </label>
