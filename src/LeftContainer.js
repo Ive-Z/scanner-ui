@@ -80,6 +80,8 @@ class LeftContainer extends React.Component {
 					n={this.state.n}
 					handleAdd={this.handleAdd}
 					handleMinus={this.handleMinus}
+					handleNext={this.props.handleNext}
+					handleTakePhotos={this.props.handleTakePhotos}
 					onStart={this.props.onStart}
 					onChange={this.onChange}
 				/>

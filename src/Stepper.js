@@ -69,7 +69,7 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                             <RemoveIcon />
                         </Fab>
                         <div class="slide_num">
-                            
+
                             <DiscreteSlider value={props.n} onChange={props.onChange} />
 
                         </div>
@@ -85,8 +85,8 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                         Taking {props.n} pictures
                     </label>
 
-                    <Button style={{padding: '2% 15%'}} variant="contained" color="primary" onClick={props.onStart}>
-                        <label class="var_txt">Start!</label>
+                    <Button style={{padding: '2% 15%'}} variant="contained" color="primary" onClick={props.handleNext}>
+                        <label class="var_txt">Next</label>
                     </Button>
                 </div>
             </div>
@@ -104,12 +104,19 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                 <div class="all_container">
                     <div class="content_container">
                         <div class="abc">
-                            <TextMobileStepper images={props.images}/>
+                            Choose a base line.
+                        </div>
+                        {props.images.length===1 ? (<img src={props.Images[0]}/>) : (<div> </div> ) }
+
+                        <Button style={{padding : '2% 15%'}} variant="contained" color="primary" onClick={props.handleTakePhotos}>
+                            <label class="var_txt">{props.images.length===0? "Take reference image" : "Retake reference image"}</label>
+                        </Button>
+
+                        <div class="abc">
                         </div>
 
-
                         <Button style={{padding : '2% 15%'}} variant="contained" color="primary" onClick={props.onStart}>
-                            <label class="var_txt">TEMP TEXT</label>
+                            <label class="var_txt">Start</label>
                         </Button>
                     </div>
                 </div>
@@ -117,6 +124,20 @@ export default function HorizontalLabelPositionBelowStepper(props) {
             }
 
             {	props.activeStep === 2 ? (
+                <div class="all_container">
+                    <div class="content_container">
+                        <div class="abc">
+                            <TextMobileStepper images={props.images}/>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            ): (<div></div>)
+            }
+
+            {	props.activeStep === 3 ? (
                 <div class="content_container">
                     <OBJModel
                         src={object}

@@ -96,7 +96,7 @@ class App extends React.Component {
     }
 
     onStart=()=>{
-        this.state.webSocket.send("Start");
+        this.state.webSocket.send("start");
         var _activeSstep=this.state.activeStep+1;
         this.setState({activeStep: _activeSstep});
 
@@ -104,6 +104,15 @@ class App extends React.Component {
         console.log(this.state.activeStep);
     }
 
+    handleNext=()=>{
+
+        this.setState({activeStep: this.state.activeStep+1});
+    }
+
+    handleTakePhotos=()=>{
+        this.state.webSocket.send("take");
+        console.log("take request sent");
+    }
 
 
 
@@ -123,7 +132,14 @@ class App extends React.Component {
                 </AppBar>
                 {/* <main className={classes.layout}> */}
                 {/* <Paper className={classes.paper}> */}
-                <ContentContainer explanationStep={this.state.explanationStep} activeStep={this.state.activeStep} onStart={this.onStart} images={this.state.images}/>
+                <ContentContainer
+                    explanationStep={this.state.explanationStep}
+                    activeStep={this.state.activeStep}
+                    onStart={this.onStart}
+                    handleNext={this.handleNext}
+                    handleTakePhotos={this.handleTakePhotos}
+                    images={this.state.images}
+                    />
                 {/* </Paper> */}
                 {/* </main> */}
             </React.Fragment>
