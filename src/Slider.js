@@ -18,10 +18,10 @@ function valuetext(value) {
 
 function changeHandler(event, value) {
     alert(value);
-    
+
 }
 
-export default function DiscreteSlider() {
+export default function DiscreteSlider(props) {
   const classes = useStyles();
 
   return (
@@ -31,15 +31,15 @@ export default function DiscreteSlider() {
       <div className={classes.margin} />
 
       <Slider
-        defaultValue={6}
+        value={props.value}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-small-steps"
         step={1}
         marks
-        min={1}
-        max={20}
+        min={6}
+        max={26}
         valueLabelDisplay="auto"
-        onChangeCommitted={changeHandler}
+        onChangeCommitted={props.onChange}
       />
 
     </div>

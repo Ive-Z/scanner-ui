@@ -20,6 +20,8 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import TextMobileStepper from './ImageBroswer'
 
 import {OBJModel} from 'react-3d-viewer'
+import object from './out.obj'
+import tex from './out.png'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -39,38 +41,13 @@ function getSteps() {
   return ['Initialization', 'Processing...', 'Done!'];
 }
 
-export default function HorizontalLabelPositionBelowStepper() {
+export default function HorizontalLabelPositionBelowStepper(props) {
 
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+  // const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
-  var n=6;
 
-  function handleNext() {
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
-  }
 
-  function handleBack() {
-    setActiveStep(prevActiveStep => prevActiveStep - 1);
-  }
-
-  function handleReset() {
-    setActiveStep(0);
-  }
-
-  function handleAdd() {
-    n=n+1;
-	alert(n);
-	// alert(state);
-  }
-
-  function handleMinus() {
-	if(n>=6){
-		n=n-1;
-		alert(n);
-	}
-
-  }
 
   return (
     <div className={classes.root}>
@@ -82,33 +59,33 @@ export default function HorizontalLabelPositionBelowStepper() {
             ))}
         </Stepper> */}
 
-        {activeStep === 0 ? (
+        {props.activeStep === 0 ? (
             <div class="all_container">
                 <div class="content_container">
                     <div class="var_container">
 
 
-                        <Fab style={{margin: '20px'}} color="secondary" aria-label="minus" className={classes.margin} onClick={handleMinus}>
+                        <Fab style={{margin: '20px'}} color="secondary" aria-label="minus" className={classes.margin} onClick={props.handleMinus}>
                             <RemoveIcon />
                         </Fab>
                         <div class="slide_num">
-
-                            <DiscreteSlider />
+                            
+                            <DiscreteSlider value={props.n} onChange={props.onChange} />
 
                         </div>
 
 
-                        <Fab style={{margin: '20px'}} color="secondary" aria-label="add" className={classes.margin} onClick={handleAdd}>
+                        <Fab style={{margin: '20px'}} color="secondary" aria-label="add" className={classes.margin} onClick={props.handleAdd}>
                             <AddIcon />
                         </Fab>
 
                     </div>
 
                     <label class="var_num">
-                        Taking {n} pictures
+                        Taking {props.n} pictures
                     </label>
 
-                    <Button style={{padding: '2% 15%'}} variant="contained" color="primary" onClick={handleNext}>
+                    <Button style={{padding: '2% 15%'}} variant="contained" color="primary" onClick={props.onStart}>
                         <label class="var_txt">Start!</label>
                     </Button>
                 </div>
@@ -123,30 +100,33 @@ export default function HorizontalLabelPositionBelowStepper() {
                 ): (<div></div>)
             } */}
 
-		{	activeStep === 1 ? (
-      <div class="all_container">
-			<div class="content_container">
-        <div class="abc">
-         <TextMobileStepper/>
+            {	props.activeStep === 1 ? (
+                <div class="all_container">
+                    <div class="content_container">
+                        <div class="abc">
+                            <TextMobileStepper images={props.images}/>
+                        </div>
+
+
+                        <Button style={{padding : '2% 15%'}} variant="contained" color="primary" onClick={props.onStart}>
+                            <label class="var_txt">TEMP TEXT</label>
+                        </Button>
+                    </div>
+                </div>
+            ): (<div></div>)
+            }
+
+            {	props.activeStep === 2 ? (
+                <div class="content_container">
+                    <OBJModel
+                        src={object}
+                        texPath={tex}
+                    />
+                </div>
+
+            ): (<div></div>)
+            }
         </div>
-
-
-			  <Button style={{padding : '2% 15%'}} variant="contained" color="primary" onClick={handleNext}>
-			    	<label class="var_txt">TEMP TEXT</label>
-			  </Button>
-			</div>
-      </div>
-      ): (<div></div>)
-  		}
-
-		{	activeStep === 2 ? (
-			<div class="content_container">
-      <OBJModel src="./src/pangea3dgalleon.obj" texPath="./pangea3dgalleon.obj"/>
-    </div>
-
-  		): (<div></div>)
-  		}
-	  </div>
     </div>
   );
 }

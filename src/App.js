@@ -54,46 +54,56 @@ class App extends React.Component {
 
     constructor(props) {
       super(props);
-      // Don't call this.setState() here!
+
       let ws = new WebSocket("ws://localhost:8765");
+
+      this.state = { activeStep: 0, explanationStep: 0, webSocket: ws, images:[], modelPath: "", explanationIndex: 0};
 
       ws.onopen = function (event) {
           ws.send("JS");
       };
 
-      ws.onmessage = function (event) {
-          console.log(event.data);
-        }
+      ws.addEventListener('message', (event) => {
+          this.handleWSMessage(event)
+      });
 
-      this.state = { activeStep: 0, webSocket: ws };
-
-      console.log(this.state.webSocket);
+      console.log(this.state);
       // this.handleClick = this.handleClick.bind(this);
     }
 
-    // state = {
-    //
-    // };
+    handleWSMessage=(event)=>{
 
-    // handleNext = () => {
-    //   const { activeStep } = this.state;
-    //   this.setState({
-    //     activeStep: activeStep + 1,
-    //   });
-    // };
-    //
-    // handleBack = () => {
-    //   const { activeStep } = this.state;
-    //   this.setState({
-    //     activeStep: activeStep - 1,
-    //   });
-    // };
-    //
-    // handleReset = () => {
-    //   this.setState({
-    //     activeStep: 0,
-    //   });
-    // };
+        if(JSON.parse(event.data)["imgPath"]){
+            console.log("contain imgPath");
+
+            const cloneimgs = this.state.images.slice();
+            cloneimgs.push(JSON.parse(event.data));
+
+            this.setState({images:cloneimgs});
+
+            console.log(this.state.images);
+        }else if(JSON.parse(event.data)["modelPath"]){
+            console.log("contain modelPath");
+            this.setState({activeStep:2 , modelPath:JSON.parse(event.data)["modelPath"]});
+        }else if(JSON.parse(event.data)["explanationStep"]){
+            console.log("contain explanationStep");
+            this.setState({explanationStep: this.state.explanationStep+1});
+        }else{
+            console.log("illegal message");
+        }
+
+        console.log(event.data);
+    }
+
+    onStart=()=>{
+        this.state.webSocket.send("Start");
+        var _activeSstep=this.state.activeStep+1;
+        this.setState({activeStep: _activeSstep});
+
+        console.log("Start request sent");
+        console.log(this.state.activeStep);
+    }
+
 
 
 
@@ -113,7 +123,7 @@ class App extends React.Component {
                 </AppBar>
                 {/* <main className={classes.layout}> */}
                 {/* <Paper className={classes.paper}> */}
-                <ContentContainer/>
+                <ContentContainer explanationStep={this.state.explanationStep} activeStep={this.state.activeStep} onStart={this.onStart} images={this.state.images}/>
                 {/* </Paper> */}
                 {/* </main> */}
             </React.Fragment>

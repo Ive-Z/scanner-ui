@@ -10,16 +10,15 @@ const styles = theme => ({
 });
 
 class RightContainer extends React.Component {
-    state = {
+	constructor(props) {
+      super(props);
+    }
 
-    };
     render() {
-        const { classes } = this.props;
-        const { activeStep } = this.state;
 
         return (
             <React.Fragment>
-                <VerticalLinearStepper/>
+                <VerticalLinearStepper explanationStep={this.props.explanationStep}/>
             </React.Fragment>
 );
 }

@@ -25,10 +25,10 @@ class ContentContainer extends React.Component {
             <React.Fragment>
                 <div class='both_cont'>
                     <div class='left_cont'>
-                        <LeftContainer/>
+                        <LeftContainer activeStep={this.props.activeStep} onStart={this.props.onStart} images={this.props.images}/>
                     </div>
                     <div class='right_cont'>
-                        <RightContainer/>
+                        <RightContainer explanationStep={this.props.explanationStep}/>
                     </div>
                 </div>
 
