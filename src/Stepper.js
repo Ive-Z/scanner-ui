@@ -114,7 +114,16 @@ export default function HorizontalLabelPositionBelowStepper(props) {
                             Choose a base line.
                         </div>
 
-                        {images.length===1 ? (<img className={classes.img} src={images[0]}/>) : (<div> </div> ) }
+                        {images.length===1 ? (<div class="all_container">
+                            <div class="content_container">
+                                <div class="abc">
+                                    <TextMobileStepper images={images}/>
+                                </div>
+
+
+
+                            </div>
+                        </div>) : (<div> </div> ) }
 
 
 
