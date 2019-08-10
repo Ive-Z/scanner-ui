@@ -6,6 +6,8 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import './stepper.css';
+
 // import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
 
@@ -73,6 +75,8 @@ function getStepContent(stepIndex) {
 // }
 
 export default function HorizontalLabelPositionBelowStepper() {
+  
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -106,7 +110,7 @@ export default function HorizontalLabelPositionBelowStepper() {
 
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+      <Stepper id="x" activeStep={activeStep} alternativeLabel>
         {steps.map(label => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
@@ -117,49 +121,61 @@ export default function HorizontalLabelPositionBelowStepper() {
 
 
 	  {activeStep === 0 ? (
-		  <div>
-		  <div>
-			 <Fab size="small" color="secondary" aria-label="minus" className={classes.margin}>
+      <div class="all_container">
+		  <div class="content_container">
+		  <div class="var_container">
+
+			 <Fab style={{margin: '20px'}} color="secondary" aria-label="minus" className={classes.margin} onClick={handleMinus}>
 			   <RemoveIcon />
 			 </Fab>
 
-			 {n}
+      <label class="var_num">
+        {n}
+      </label>
+       
 
-			<Fab size="small" color="secondary" aria-label="add" className={classes.margin}>
-			  <AddIcon onClick={handleAdd}/>
+			<Fab style={{margin: '20px'}} color="secondary" aria-label="add" className={classes.margin} onClick={handleAdd}>
+			  <AddIcon />
 			</Fab>
 
 		  </div>
 
-		  <Button variant="contained" color="primary" onClick={handleNext}>
-		    	Start!
+		  <Button style={{padding: '2% 15%'}} variant="contained" color="primary" onClick={handleNext}>
+		    	<label class="var_txt">Start!</label>
 		  </Button>
 		  </div>
-	  ) : (<div></div>)}
+      </div>
+    ) : (<div></div>)}
 
 
 
 
 	  <div>
-	  {	activeStep === 0 ? (
+	  {/* {	activeStep === 0 ? (
 		  	  <Button size="small" className={classes.margin}>
 		            1
 		         </Button>
 		): (<div></div>)
-		}
+		} */}
 
 		{	activeStep === 1 ? (
-			<div>
-  		  	  <TextMobileStepper/>
-			  <Button variant="contained" color="primary" onClick={handleNext}>
-			    	TEMP NEXT
+      <div class="all_container">
+			<div class="content_container">
+        <div class="abc">
+         <TextMobileStepper/>
+        </div>
+
+  		  	  
+			  <Button style={{padding : '2% 15%'}} variant="contained" color="primary" onClick={handleNext}>
+			    	<label class="var_txt">TEMP TEXT</label>
 			  </Button>
 			</div>
-  		): (<div></div>)
+      </div>
+      ): (<div></div>)
   		}
 
 		{	activeStep === 2 ? (
-			<div>
+			<div class="content_container">
       <OBJModel src="./src/pangea3dgalleon.obj" texPath="./pangea3dgalleon.obj"/>
     </div>
 
